@@ -1,5 +1,5 @@
 ## Introduction
-This repository serves as a showcase sample of a huge and comprehensive project, running until 8/31/2024, following Professor Thomas Coleman's methodology to fit and build U.S. Treasury (UST) yield curves from 1925 to the present.
+This repository serves as a showcasing sample of a huge and comprehensive project, running until 8/31/2024, following Professor Thomas Coleman's methodology to fit and build U.S. Treasury (UST) yield curves from 1925 to the present.
 
 The project focuses on updating the historical fitted forward rates from 1925 onward, transitioning from FORTRAN to Python while enhancing the methodology originally published over 25 years ago in "US Treasury Yield Curves." We utilize monthly UST bond prices sourced from Chicago’s Center for Research in Security Prices (CRSP).
 
