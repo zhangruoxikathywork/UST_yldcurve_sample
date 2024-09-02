@@ -1,0 +1,213 @@
+<mxfile host="Electron" modified="2024-06-29T02:06:45.913Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.6.1 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="kFZVwryFp6PU0d4vMhKT" version="24.6.1" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="984" dy="718" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-0" value="Data Reading, Cleaning, Simple Analysis&amp;nbsp;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="70" y="30" width="540" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-1" value="CRSP data at WRDS" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="120" y="100" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-2" value="Old FORTRAN" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="360" y="70" width="220" height="224" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-3" value="Python code to translate CRSP WRDS &#xa;data to the format required by the old&#xa;FORTRAN code&#xa;script &#39;translateCRSPtoFORTRAN.py&#39;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="j5idFGcNlUKoqtjqxIG5-2">
+          <mxGeometry y="26" width="220" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-5" value="Python code to read the RAW output &#xa;files from FORTRAN into python data-&#xa;frames. Also to convert parbond rate&#xa;tables from .txt to .pdf for easier reading&#xa;script: &#39;readRAW.py&#39;&#xa;script: &#39;WritePDF.py&#39;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="j5idFGcNlUKoqtjqxIG5-2">
+          <mxGeometry y="100" width="220" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.865;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="j5idFGcNlUKoqtjqxIG5-1" target="j5idFGcNlUKoqtjqxIG5-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-13" value="Bond Analysis" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="278" y="320" width="220" height="150" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="j5idFGcNlUKoqtjqxIG5-13" source="j5idFGcNlUKoqtjqxIG5-15">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="350" y="63" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-15" value="Reads the CRSP data and creates &#xa;various tables to display characteristics&#xa;monthly - for example the number of&#xa;callable bonds at 15+yrs maturity&#xa;&#xa;Output as .csv and a large Excel file" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="j5idFGcNlUKoqtjqxIG5-13">
+          <mxGeometry y="26" width="220" height="124" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-19" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.595;exitY=1.038;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.002;entryY=0.063;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="j5idFGcNlUKoqtjqxIG5-1" target="j5idFGcNlUKoqtjqxIG5-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="420" y="240" as="sourcePoint" />
+            <mxPoint x="470" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-21" value="Excel Output" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="640" y="320" width="130" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-22" value="FORTRAN" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="670" y="80" width="140" height="90" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-24" value="Run the old (1992)&#xa;FORTRAN code as-is" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="j5idFGcNlUKoqtjqxIG5-22">
+          <mxGeometry y="26" width="140" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-28" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.009;exitY=1.014;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="j5idFGcNlUKoqtjqxIG5-3" target="j5idFGcNlUKoqtjqxIG5-24">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="580" y="240" as="sourcePoint" />
+            <mxPoint x="630" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-29" value="Core UST Project" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="110" y="530" width="510" height="280" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-30" value="Various components, with the overall project outlined in a separate document&#xa;&#xa;Comprised of various components&#xa; 1. Reading in and cleaning the raw CRSP file&#xa;    - Performing various pre-estimation actions, such as creating bid/offer weights&#xa; 2. Looping through each month to fit forward rates&#xa;   - Also calculate actual vs predicted prices and yields&#xa; 3. Save fitted forward rates and actual/predicted to a pickle file&#xa; 4. Graphing forward rates for analysis&#xa; 5. Creating par bond and zero rate tables" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="j5idFGcNlUKoqtjqxIG5-29">
+          <mxGeometry y="26" width="510" height="154" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-34" value="Future development:&#xa;1. Curve DV01 calculations&#xa;2. Monthly duration&#xa;3. Monthly bond equivalent holdings to represent maturity structure&#xa;4. Returns and synthetic returns" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="j5idFGcNlUKoqtjqxIG5-29">
+          <mxGeometry y="180" width="510" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.043;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="j5idFGcNlUKoqtjqxIG5-1" target="j5idFGcNlUKoqtjqxIG5-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-36" value="Overall UST Project" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="70" y="1090" width="540" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-37" value="CRSP data at&amp;nbsp;&lt;div&gt;WRDS&lt;/div&gt;" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="690" y="1690" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-38" value="Read and Clean Data" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="280" y="1660" width="350" height="140" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-39" value="crsp_data_processing.py&#xa;  - clean_crsp()&#xa;produce_intpus.py&#xa;  - read_and_process_csvdata(), filte_yield_to_worst_parms(), &#xa;    create_weight()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="j5idFGcNlUKoqtjqxIG5-38">
+          <mxGeometry y="26" width="350" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-50" value="Pricing Functions" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="310" y="1160" width="510" height="220" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-51" value="pvfn.py: core pricing functions&#xa; - bondParmstoMatrix(): takes parms for one month and creates sparse CF matrixes&#xa; - pvBondFromCurve(): core pricing function, which takes curve and sparse matrix or parms&#xa;   works on all bonds at a single date&#xa; - bondPriceFromYield_parms(), bondYieldFromPrice_parms(), bondPriceFromYield_callable(),&#xa;   bondYieldFromPrice_callable: single bond functions for prices and yields&#xa; - pvCallable_lnY(): using LN Yield model. Needs to be updated to work with LN Price, &#xa;   LN Yield, Norm Yield" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="j5idFGcNlUKoqtjqxIG5-50">
+          <mxGeometry y="26" width="510" height="134" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-52" value="pvcover.py: cover functions for pricing functions above used for optimization to pass args&#xa; - pvCallable_lnYCover(), pvCallable_lnYCover_tax(), pvCallable_lnYCover_tax_weight()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="j5idFGcNlUKoqtjqxIG5-50">
+          <mxGeometry y="160" width="510" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-55" value="Worker Functions to Calculate Forward Rates &amp; Predicted Price" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="70" y="1440" width="360" height="170" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-56" value="calculate_ratesprices.py: functions that actually do optimization&#xa; - calculate_rate_notax(): calculate forward rates no tax&#xa;    - Uses scipy optimize calling pvCallable_lnYCover()&#xa; - calculate_rate_with_tax(): calculate forward rates yes tax&#xa;    - Uses scipy optimize calling pvCallable_lnYCover_tax()&#xa; - get_predicted_actual_yieldprice_notax(): predicted and actual&#xa;   yield and price (after fitting forward rates" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="j5idFGcNlUKoqtjqxIG5-55">
+          <mxGeometry y="26" width="360" height="124" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-58" value="DiscFact (and Date) Functions" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="480" y="1430" width="360" height="160" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-59" value="discfact.py: core functions for calculating discount &#xa;     factors from curve&#xa; - discfact()&#xa;   - Calls the actual worker function dfpwcf(), dfpwlz(), dfpwtf()&#xa;   - Could add others as we wish" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="j5idFGcNlUKoqtjqxIG5-58">
+          <mxGeometry y="26" width="360" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-60" value="DateFunctions_1.py: various low-level date arithmetic functions" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="j5idFGcNlUKoqtjqxIG5-58">
+          <mxGeometry y="120" width="360" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-61" value="Main Script to Fit Forwards Month-by-Month" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="80" y="1840" width="430" height="150" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-62" value="calcfwds.py: wrapper script that pulls pieces together to fit forwards&#xa; - produce_curve_wrapper(): loop through months (of cleaned data) for given&#xa;   start and end date, to fit forward rates and output to a pickle file&#xa;     - Calls other functions to do the work: clean_crsp(), calculate_rate_notax()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="j5idFGcNlUKoqtjqxIG5-61">
+          <mxGeometry y="26" width="430" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-64" value="Display Forwards, Par Bond Rates, etc." style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="470" y="2010" width="360" height="190" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-65" value="displayFwds.py: script to display forwards (plots and tables)&#xa; - Script, not functions" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="j5idFGcNlUKoqtjqxIG5-64">
+          <mxGeometry y="26" width="360" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-66" value="Needs substantial work&#xa;1) Better graphing&#xa;2) Actual vs predicted overlay on forwards&#xa;3) Par bond tables" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="j5idFGcNlUKoqtjqxIG5-64">
+          <mxGeometry y="90" width="360" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-67" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.502;entryY=1.067;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="j5idFGcNlUKoqtjqxIG5-58" target="j5idFGcNlUKoqtjqxIG5-52">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="1450" as="sourcePoint" />
+            <mxPoint x="490" y="1400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-68" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="j5idFGcNlUKoqtjqxIG5-37" target="j5idFGcNlUKoqtjqxIG5-39">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="1310" as="sourcePoint" />
+            <mxPoint x="490" y="1260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-69" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.163;exitY=1.033;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.617;entryY=-0.018;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="j5idFGcNlUKoqtjqxIG5-52" target="j5idFGcNlUKoqtjqxIG5-55">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="1420" as="sourcePoint" />
+            <mxPoint x="490" y="1370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-70" value="Empty Template" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="40" y="2250" width="360" height="110" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-71" value="x1" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="j5idFGcNlUKoqtjqxIG5-70">
+          <mxGeometry y="26" width="360" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-72" value="x2" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="j5idFGcNlUKoqtjqxIG5-70">
+          <mxGeometry y="70" width="360" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-73" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.684;entryY=-0.013;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" target="j5idFGcNlUKoqtjqxIG5-61">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="1800" as="sourcePoint" />
+            <mxPoint x="490" y="1940" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-74" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.302;entryY=-0.033;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="j5idFGcNlUKoqtjqxIG5-55" target="j5idFGcNlUKoqtjqxIG5-61">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="1700" as="sourcePoint" />
+            <mxPoint x="490" y="1650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-75" value="Worker Functions for Plotting" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="30" y="2030" width="360" height="150" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-76" value="plot_rates.py: worker functions&#xa; - plot_fwdrate_from_output(): the function that is actually used&#xa; - plot_no_tax_curve(): used??&#xa; - plot_one_type_fwdcurve_tax(): used??&#xa; - plot_rates_by_one_month(): used??&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="j5idFGcNlUKoqtjqxIG5-75">
+          <mxGeometry y="26" width="360" height="124" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-78" value="Fwd Rates and&lt;div&gt;Actual / Predicted&lt;/div&gt;&lt;div&gt;Prices and Yields&lt;/div&gt;" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="640" y="1840" width="138" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-79" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.005;exitY=0.667;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="j5idFGcNlUKoqtjqxIG5-62" target="j5idFGcNlUKoqtjqxIG5-78">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="450" y="2140" as="sourcePoint" />
+            <mxPoint x="500" y="2090" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-80" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.519;entryY=-0.011;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="j5idFGcNlUKoqtjqxIG5-78" target="j5idFGcNlUKoqtjqxIG5-64">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="450" y="2140" as="sourcePoint" />
+            <mxPoint x="500" y="2090" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j5idFGcNlUKoqtjqxIG5-82" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.006;exitY=0.395;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.003;entryY=-0.03;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="j5idFGcNlUKoqtjqxIG5-76" target="j5idFGcNlUKoqtjqxIG5-66">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="450" y="2300" as="sourcePoint" />
+            <mxPoint x="500" y="2250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

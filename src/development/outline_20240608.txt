@@ -1,0 +1,9 @@
+- Options
+  - OptMod flag working
+  - Various option models
+- PADJ
+- Tax status
+- Bond vs bill weight
+- Bid-Ask & Duration weighting
+- Choosing breaks
+- Writing out parms (data structure)

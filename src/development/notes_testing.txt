@@ -1,0 +1,115 @@
+Notes on testing and debugging python code
+
+20-jul-2024
+- FORTRAN: fixed up problem with merging forward rates at long end
+  - If the longest bond is < 365 days beyond end of shorter fwd period then merge with earlier
+
+
+7-jul-2024
+- Running 2000/1 - 2002/12 with option adjusted yield
+  - Timing 78.678 (vs 42.452 for yield-to-worst)
+- Graphing forward rates completely fails
+  - Optimization does not work. First two bills nan??
+  - Fixed problem: setting up 'icall' in pvCallable_lnY must be icall = np.array(list(range(bondcount)))[callflag == 1]
+- For 13.25 of 15-may-2009/2014, with 15% yield vol:
+  - yield-to-call (2009) = 6.8763%
+  - yield-to-mat no option = 8.0914%
+  - opt adj yield = 6.8398%
+  - with yvol = 0 the opt adj yld comes out as 6.8763%. Is that correct??
+
+
+4-jul-2024 FORTRAN 2024
+- Re-ran with 15 forward rates
+- But something breaks at 2/1974
+  - Algorithm for merging forward rates periods not working corretly
+  - Negative forward rates for longest period
+
+
+4-jul-2024 Updated graphs
+- In parzeroBond.py
+  - Minor modifications to names in dataframes, fixed up
+  - Major: added new function 'plot_singlecurve' 
+    - plot par or annuity or zero rates
+    - for a single forward curve (single date, single curve type)
+      - different curve types all basically overlay each other for parbond or annuity rates
+    - Predicted par bond rates, and optionally actual yields
+
+- For 31-jan-2000 and 31-dec-2001 there is a gap between 10 & 15 years maturity
+  - I suspect this ia a bug
+  - No (5-jul-24). It is callable bonds between 2010-2015, and all above par so yield to worst makes them shorter
+  - In graph of Act-vs-Pred for 1-jan-2000 the callable bonds are all high yield. Option-adjusted yield pulls some down by 10bp. 
+
+2-jul-2024 Testing 
+
+- Timings with scipy.optimize.minimize vs .leastsq
+  - for 3 curves, monthly 2000/01 - 2002/12
+  - minimize (method='BFGS') = 66.849
+  - leastsq = 46.494
+  - Initially results looked different, but that was because so.leastsq require (Act-Pred)*sqrt(wt) not ((Act-Pred)**2)*wt
+
+- 31-dec-2001 python problems, 
+  - SOLVED
+  - PROBLEM: Some optimizations were not finishing and giving wrong results
+  - Change from using 'Nelder-Mead' to 'BFGS' for optimization
+  - Need to build in check for completeion
+  - PROBLEM: For long bond (5.375 of 15-feb-2031, price = 98.53125 (avg B/A)
+    - Yield according to app = 5.47599%. According to python code act yld = 5.61934%
+
+- FORTRAN2024 problems
+  - Old code used 14 periods, with last being 16y-longest
+  - 2-jul-2024 changed to use 15 periods, 8-16, 16-24, 24-longest
+    - 31-dec-2001 gives 3.19% for fitted forward rate. Vs python -5.1466%cc
+
+
+1-jul-2024
+- ITYPE >=9 is bad. I don't know what ITYPE = 11 or 12 is, but they are not regular bonds
+  - Modify "clean_crsp()" for cleaning python runs (lines 95-99)
+  - Modify "GETDAT.FOR" for cleaning FORTRAN runs (lines 106-109)
+- But these seem to be thrown out anyway (I think because maturity date come from CRSPID
+  and this will make maturity < today and throw out bond)
+
+- For 2001 12 31 the pwcf curve is all wrong at long end
+- For 2000 12 29 the pwlz curve is all wrong at long end
+
+9-jun-2024
+
+- Testing numba (JIT compilation)
+  - With no numba
+    - Fitting forwards 20000101 to 20030101 (for years 2000, 2001, 2002)
+    - --- 148.296 overall time ---
+    - --- 146.635 calcfwd time ---
+  - With yes numba, on disfac for pwcf, pwlz, pwtf
+    - --- 165.312 overall time ---
+    - --- 163.718 calcfwd time ---
+
+https://numba.pydata.org/
+See sample for numba and cython in curve_utils/tests/mandelbrot.py
+from https://python.plainenglish.io/advanced-python-programming-writing-efficient-code-with-cython-and-numba-edf67122f7ce
+
+28-apr-2024
+
+Some thoughts & results for getYield.py:
+1) Data structure for curves and predicted-vs-actual are now working reasonably:
+  - df_curve now contains the full curve: type (string), quotedate (nparray), breaks (nparray), rates (nparray)
+  - df_curve is saved as .csv and as .pkl, and can be properly read back 
+    - .csv is good because it can be viewed and is more transferrable across applications
+    - But .csv takes a little extra work to read in the elements as nparray
+2) Plotting does not work, since the current plot functions use the old data structures
+  - These functions will need to be re-written
+3) Fitting curves works better now 
+  - For fitted curves for 2000 that I looked at, there were problems at the short end
+    - Forward rates jumped around a lot, and some were really high (like 40%)
+  - Two problems
+    - Using weekly breaks
+    - Mixing bonds and bills
+  - We were using the breaks from the old FORTRAN code:
+    - Weekly for first month, to match days of bills: 7days, 14, 21, 35. 
+    - That worked in FORTRAN code where we were using only bills, and going point-to-point for first 4 weeks
+    - But now we are also including short-dated coupon bonds, and these are not liquid and prices much less reliable
+  - Breaks: I cut breaks down to 28 days, 92 days
+    - Not the solution we want long-term, but works for now
+  - Weighting and mixing bonds and bills at short end
+    - We are using both bonds and bills at the short end
+    - Short-dated coupon bonds are not liquid (and so prices not as reliable)
+    - We need to introduce weights for bonds relative to bills - something like 1/10 or 1/100 weight for bonds
+

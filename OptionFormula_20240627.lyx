@@ -1,0 +1,1241 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage[toc,page]{appendix}
+\usepackage{mdframed}
+\usepackage{comment}
+\usepackage{enumitem}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing onehalf
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\boxbgcolor #fffeae
+\branch Child
+\selected 1
+\filename_suffix 0
+\color #faf0e6
+\end_branch
+\branch Named
+\selected 0
+\filename_suffix 0
+\color #faf0e6
+\end_branch
+\branch Anon
+\selected 1
+\filename_suffix 0
+\color #faf0e6
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1.25in
+\topmargin 1in
+\rightmargin 1.25in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip medskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Formulae for Bonds Options
+\end_layout
+
+\begin_layout Author
+Thomas S.
+ Coleman
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Harris School of Public Policy, University of Chicago, tscoleman@uchicago.edu
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Introduction
+\end_layout
+
+\begin_layout Standard
+There are two or three or four versions of option models for bonds:
+\end_layout
+
+\begin_layout Enumerate
+Bond Prices are log-normal 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Bonds prices can go down to zero (so yields up to infinity)
+\end_layout
+
+\begin_layout Itemize
+Bond prices can go above sum(CF): 4yr 6.5% bond, sum of CF=$126.
+ P=$130 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ yld = -0.84%
+\end_layout
+
+\begin_layout Itemize
+Effectively, bond yields normal
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Bond yields log-normal
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+1.0%
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+1.1% same as 10%
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+11% same as 100%
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+110%
+\end_layout
+
+\begin_layout Itemize
+Yields cannot go negative
+\end_layout
+
+\begin_layout Itemize
+Maybe good, maybe bad
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Bond yield normal
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Commonly used now
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Bond yield square-root process
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+One of my favorite, because mid-way between log-normal & normal
+\end_layout
+
+\end_deeper
+\begin_layout Subsection*
+Option valuation with Equivalent Martingale Measures
+\end_layout
+
+\begin_layout Standard
+In complete and frictionless markets we can derive simple arbitrage pricing
+ relationships.
+ We do this by choosing a suitable numeraire and using the equivalent martingale
+ measure adapted to this numeraire.
+ The resulting arbitrage pricing relationship is: 
+\begin_inset Formula 
+\[
+\frac{V(t)}{\mathcal{N}(t)}=E^{Q}\left[\frac{V(T)}{\mathcal{N}(T)}\right]
+\]
+
+\end_inset
+
+(see 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://mfe.baruch.cuny.edu/wp-content/uploads/2019/12/IRC_Lecture4_2019.pdf
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://quant.stackexchange.com/questions/38530/change-of-numeraire-to-price-europ
+ean-swaptions
+\end_layout
+
+\end_inset
+
+) 
+\end_layout
+
+\begin_layout Standard
+This will hold for any and all securities traded.
+ Most importantly for our purposes, it will apply for 
+\begin_inset Formula $V(t)=Bond$
+\end_inset
+
+ and 
+\begin_inset Formula $V(t)=Option$
+\end_inset
+
+, and other instruments that we may wish to value.
+ For the case of a bond and option on the bond we know today's market price
+ of the bond (
+\begin_inset Formula $B(t)$
+\end_inset
+
+) and for the bond we will use the pricing relationship 
+\begin_inset Formula $\frac{B(t)}{\mathcal{N}(t)}=E^{Q}\left[\frac{B(T)}{\mathcal{N}(T)}\right]$
+\end_inset
+
+ to back out or calibrate the risk adjustment embedded in the equivalent
+ martingale measure 
+\begin_inset Formula $Q$
+\end_inset
+
+.
+ This is similar conceptually to the way we back out a risk premium from
+ the market price and yield of a risky bond (and also the corresponding
+ UST) to uncover the market risky yield adjustment for risk-adjusted discounting.
+ Here we are using equivalent martingale risk-adjusted valuation and using
+ the market price of the bond to back out the risk adjustment embedded in
+ the distribution.
+ This valuation method is usually, but misleading, termed risk-neutral valuation.
+ The term is misleading because the valuation is not risk-neutral in any
+ way.
+ It embeds the risk adjustment in the measure 
+\begin_inset Formula $Q$
+\end_inset
+
+ in a way that we can then take a simple expectation 
+\begin_inset Formula $E^{Q}\left[\frac{B(T)}{\mathcal{N}(T)}\right]$
+\end_inset
+
+.
+ This in no way assumes risk-neutrality, but rather builds the risk adjustment
+ into the measure 
+\begin_inset Formula $Q$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For each of the models (1)-(4), we will choose the appropriate underlying
+ asset 
+\begin_inset Formula $\tilde{Y}(t)$
+\end_inset
+
+, option payout 
+\begin_inset Formula $V(\tilde{Y},T)$
+\end_inset
+
+, numeraire 
+\begin_inset Formula $\mathcal{N}(t)$
+\end_inset
+
+, and adapted equivalent martingale measure 
+\emph on
+Q
+\emph default
+ with expectation 
+\begin_inset Formula $E^{Q}[\cdot]$
+\end_inset
+
+to ensure that we have a simple pricing relationship.
+ This then means that our option model will be a simple expectation, and
+ thus some form of Black-Scholes pricing formula.
+\end_layout
+
+\begin_layout Subsection*
+Sample Option Pricing
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Valuation
+\begin_inset space ~
+\end_inset
+
+Date 19-feb-2016
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Expiry
+\begin_inset space \space{}
+\end_inset
+
+Date 1-sep-2018 (2.53 years)
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Bond
+\begin_inset space ~
+\end_inset
+
+Maturity 1-sep-2045 (27 years from expiry)
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Bond
+\begin_inset space ~
+\end_inset
+
+Coupon 4.7%, semi-annual frequency
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Forward
+\begin_inset space ~
+\end_inset
+
+Bond
+\begin_inset space ~
+\end_inset
+
+Price 95.98, implies yield 4.972%
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Volatility LNY 18.55%, LNP 13.486%, NormY 0.895%
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Short
+\begin_inset space \space{}
+\end_inset
+
+Rate 4.97%sab 
+\begin_inset Formula $\Rightarrow\;df=\frac{1}{(1+.0497/2)^{2\cdot2.53}}=0.88320$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Log-Normal Price
+\end_layout
+
+\begin_layout Standard
+This is a forward-pricing model where the underlier 
+\begin_inset Formula $\tilde{Y}(t)$
+\end_inset
+
+ is a forward bond price 
+\begin_inset Formula $\tilde{B}(t,T,m)=B_{T}(t)$
+\end_inset
+
+ – the price at time 
+\emph on
+t
+\emph default
+ (say today) of a forward bond starting at 
+\emph on
+T
+\emph default
+ with 
+\emph on
+m
+\emph default
+ years maturity (from 
+\emph on
+T
+\emph default
+).
+ The call option payout at 
+\emph on
+T
+\emph default
+ is 
+\begin_inset Formula $C(T)=C(B_{T}(T))=\max\left[B_{T}(T)-X,0\right]$
+\end_inset
+
+.
+ The numeraire is the zero bond from 
+\emph on
+t
+\emph default
+ to 
+\emph on
+T
+\emph default
+: 
+\emph on
+Z(t,T)
+\emph default
+.
+ Our arbitrage pricing relationship for the bond is:
+\begin_inset Formula 
+\[
+\frac{B_{T}(t)}{Z(t,T)}=E^{QBZ}\left[\frac{B_{T}(T)}{Z(T,T)}\right]=E^{Q}\left[B_{T}(T)\right]
+\]
+
+\end_inset
+
+using the fact that 
+\begin_inset Formula $Z(T,T)=1$
+\end_inset
+
+.
+ I write the equivalent martingale measure as 
+\emph on
+QBZ
+\emph default
+ to emphasize that this is the measure over the bond price 
+\begin_inset Formula $\tilde{B}$
+\end_inset
+
+, adapted to the zero-bond numeraire 
+\emph on
+Z
+\emph default
+.
+ We will choose our equivalent martingale measure to be log-normal with
+ some variance 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+ and mean 
+\begin_inset Formula $\mu_{B}$
+\end_inset
+
+.
+ The variance we need to assume (unless we can back it out from some other
+ options) but the mean we back out from the market price of the bond.
+ The expectation of the bond distribution (over the whole distribution)
+ will be 
+\begin_inset Formula 
+\[
+\frac{B_{T}(t)}{e^{-rT}}=\int_{B=0}^{B=\infty}\tilde{B}_{T}\cdot\varphi\left(\tilde{B}_{T};\sigma,\mu_{B}\right)d\tilde{B}_{T}=\mu_{B}
+\]
+
+\end_inset
+
+This says that the mean of the distribution must be today's PV of the forward
+ bond 
+\begin_inset Formula $B_{T}(t)$
+\end_inset
+
+ inflated to forward value by 
+\begin_inset Formula $e^{-rT}$
+\end_inset
+
+ the PV of the zero bond – in other words the forward value of the forward
+ bond.
+ 
+\end_layout
+
+\begin_layout Standard
+We have now tied down the equivalent martingale measure 
+\begin_inset Formula $Q$
+\end_inset
+
+ (we have backed out the market's risk adjustment) and can apply the arbitrage
+ pricing relationship to the call option:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{C(t)}{Z(t,T)}=E^{Q}\left[\frac{C(T)}{Z(T,T)}\right]=E^{Q}\left[\max\left[B_{T}(T)-X,0\right]\right]
+\]
+
+\end_inset
+
+again using 
+\begin_inset Formula $Z(T,T)=1$
+\end_inset
+
+.
+ This just gives us a Black-Scholes type formula for the call option:
+\begin_inset Formula 
+\[
+Call=e^{-rT}\cdot E\left[\left(B_{T}-X\right)|B_{T}>X\right]=e^{-rT}\cdot\int_{B=X}^{B=\infty}\left(B_{T}-X\right)\varphi\left(B_{T};\sigma,\mu=B_{T}(t)\right)dB_{T}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\varphi\left(B_{T};\sigma,\mu=B_{T}(t)\right)$
+\end_inset
+
+ is the log-normal density with 
+\emph on
+price
+\emph default
+ volatility 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ and mean 
+\begin_inset Formula $\mu=B_{T}(t)$
+\end_inset
+
+, today's forward bond price (in forward price dollars).
+ This gives a Black-Scholes formula as in the picture below.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Call(0)=\left[N(d_{1})\cdot B_{T}(0)-N(d_{2})\cdot X\right]\cdot exp(-rT)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+d_{1}=\frac{1}{\sigma\sqrt{T}}\left[ln\left(\frac{B_{T}(0)}{X}\right)+\frac{\sigma^{2}T}{2}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+d_{2}=d_{1}-\sigma\sqrt{T}
+\]
+
+\end_inset
+
+The approximate relation between price and yield volatility is
+\begin_inset Formula 
+\[
+\sigma_{price}=\frac{dp}{p}\approx\frac{y}{p}\cdot\frac{dy}{y}\cdot\frac{dp}{dy}=\frac{y}{p}\cdot\sigma_{yield}\cdot BPV=y\cdot ModDur\cdot\sigma_{yield}
+\]
+
+\end_inset
+
+The more accurate relationship is 
+\begin_inset Formula 
+\[
+\sigma_{price}=\sigma_{yield}\cdot\left[\frac{y_{fwd}}{P_{fwd}}\cdot BPV_{fwd\,yld}+\frac{c}{X}\cdot BPV_{strike\,yld}\right]/2
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename /Users/tcoleman/tom/Economics/Harris/courses/AppFinMgmtFigures/module5_bondopt_notrf.eps
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Pricing
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Fwd
+\begin_inset space \space{}
+\end_inset
+
+Undlerlier 
+\begin_inset Formula $B_{T}(0)=95.98$
+\end_inset
+
+ (price of 27-year bond with 4.7% coupon at 4.972% yield)
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Strike 
+\emph on
+X
+\emph default
+ = 100
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $\sigma$
+\end_inset
+
+ Assume 
+\begin_inset Formula $\sigma_{yield}=18.5\%$
+\end_inset
+
+ which gives 
+\begin_inset Formula $\sigma_{price}=0.185\cdot\left[\frac{4.972}{95.98}\cdot14.347+\frac{4.70}{100}\cdot15.207\right]/2=13.486\%$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $d_{1},\,N(d_{1})$
+\end_inset
+
+ -0.0839, 0.4666
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $d_{2},\,N(d_{2})$
+\end_inset
+
+ -0.2985, 0.3827
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Option $5.753, call on bond price
+\end_layout
+
+\begin_layout Section
+Log-Normal Yield
+\end_layout
+
+\begin_layout Standard
+Here we are going to use the forward yield or swap coupon 
+\begin_inset Formula $\tilde{y}_{T}$
+\end_inset
+
+ as the underlying stochastic variable.
+ For a bond that pays a coupon 
+\emph on
+c
+\emph default
+ the PV of the bond is 
+\begin_inset Formula 
+\[
+PV(coup=c)=c\cdot PVAnn+100*DF(mat)=c\cdot A(\tilde{y}_{T})+100\cdot df(\tilde{y}_{T})
+\]
+
+\end_inset
+
+
+\emph on
+PVAnn
+\emph default
+ or 
+\begin_inset Formula $A(\tilde{y}_{T})$
+\end_inset
+
+ is the present value of a $1 annuity, paid at whatever frequency the bond
+ coupons are paid.
+ It is a function of the random forward yield 
+\begin_inset Formula $\tilde{y}_{T}$
+\end_inset
+
+.
+ The value of the bond is the (annual) coupon times this annuity, plus the
+ PV of $100 at maturity (the discount factor at maturity).
+ For a par bond, 
+\begin_inset Formula 
+\[
+100=\tilde{y}_{T}\cdot PV(Ann)+100*DF(mat)=\tilde{y}_{T}\cdot A(\tilde{y}_{T})+100\cdot df(\tilde{y}_{T})
+\]
+
+\end_inset
+
+where 
+\emph on
+
+\begin_inset Formula $\tilde{y}T$
+\end_inset
+
+
+\emph default
+ is the par bond yield-to-maturity (since for a par bond the coupon equals
+ the yield-to-maturity).
+ 
+\end_layout
+
+\begin_layout Standard
+Now we write down the call payout at 
+\emph on
+T
+\emph default
+ as 
+\begin_inset Formula 
+\[
+V(T)=C(B_{T}(T))=\max\left[B_{T}(T)-100,0\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\max\left[c\cdot A(\tilde{y}_{T})+100\cdot df(\tilde{y}_{T})-\tilde{y}(T)\cdot A(\tilde{y}_{T})-100\cdot df(\tilde{y}_{T}),0\right]=\max\left[\left(c-\tilde{y}(T)\right),0\right]\cdot A(\tilde{y}_{T})
+\]
+
+\end_inset
+
+The arbitrage relationship will hold for any numeraire:
+\begin_inset Formula 
+\[
+\frac{C(t)}{\mathcal{N}(t)}=E^{Qy\mathcal{N}}\left[\frac{C(T)}{\mathcal{N}(t)}\right]=E^{Qy\mathcal{N}}\left[\frac{\max\left[\left(c-\tilde{y}(T)\right),0\right]\cdot A(\tilde{y}_{T})}{\mathcal{N}(T)}\right]
+\]
+
+\end_inset
+
+where I write the measure as 
+\begin_inset Formula $Qy\mathcal{N}$
+\end_inset
+
+ to emphasize that this is a measure over the random yield 
+\begin_inset Formula $\tilde{y}$
+\end_inset
+
+ with some numeraire.
+ 
+\end_layout
+
+\begin_layout Standard
+We have two difficulties with using this formula.
+ First, numeraire.
+ If we used the zero bond as our numeraire as above, we would have
+\begin_inset Formula 
+\[
+\frac{C(t)}{Z(t,T)}=E^{QyZ}\left[\frac{C(T)}{Z(t,T)}\right]=E^{QyZ}\left[\max\left[\left(c-\tilde{y}(T)\right),0\right]\cdot A(\tilde{y}_{T})\right]
+\]
+
+\end_inset
+
+The problem is that 
+\begin_inset Formula $A(\tilde{y}_{T})$
+\end_inset
+
+ is a convex function of 
+\begin_inset Formula $\tilde{y}$
+\end_inset
+
+ and so the evaluation of the expectation (integral) is not trivial.
+ This is not impossible, however, as there are decent numerical algorithms
+ with which we can evaluate the expression, and at one time I devoted some
+ effort to coding this up.
+ But it is totally unnecessary.
+ We have the freedom to choose a numeraire different from a zero bond 
+\emph on
+Z
+\emph default
+.
+ Why don't we choose the PV of the forward annuity, 
+\begin_inset Formula $A(t,T)$
+\end_inset
+
+? In that case, the pricing expression is 
+\begin_inset Formula 
+\[
+\frac{C(t)}{A(t,T)}=E^{QyA}\left[\frac{\max\left[\left(c-\tilde{y}(T)\right),0\right]\cdot A(\tilde{y}_{T})}{A(\tilde{y}_{T})}\right]=E^{QyA}\left[\max\left[\left(c-\tilde{y}(T)\right),0\right]\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The annuity expression cancels and we are left with a very simple expression
+ for the option.
+ 
+\end_layout
+
+\begin_layout Standard
+The second difficulty is to back out the market risk-adjustment embedded
+ in the martingale measure 
+\emph on
+QyA
+\emph default
+.
+ We cannot use the market price of the bond as above (in this case the forward
+ par bond) because this would give
+\begin_inset Formula 
+\[
+\frac{B(t)}{A(t,T)}=E^{QyA}\left[\frac{\tilde{y}_{T}\cdot A(\tilde{y}_{T})+100\cdot df(\tilde{y}_{T})}{A(\tilde{y}_{T})}\right]=E^{QyA}\left[\tilde{y}_{T}+\frac{100\cdot df(\tilde{y}_{T})}{A(\tilde{y}_{T})}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and involve the expectation of 
+\begin_inset Formula $\frac{100\cdot df(\tilde{y}_{T})}{A(\tilde{y}_{T})}$
+\end_inset
+
+.
+ Instead, we can use the market value of the forward annuity itself:
+\begin_inset Formula 
+\[
+\frac{y_{fwd}\cdot A(t,T)}{A(t,T)}=y_{fwd}=E^{QyA}\left[\frac{\tilde{y}_{T}\cdot A(\tilde{y}_{T})}{A(\tilde{y}_{T})}\right]=E^{QyA}\left[\tilde{y}_{T}\right]=\mu_{y}
+\]
+
+\end_inset
+
+This simply says we set the mean of the yield distribution equal to the
+ market forward yield.
+ 
+\end_layout
+
+\begin_layout Standard
+So now we have 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+A bond with coupon 
+\emph on
+c
+\emph default
+ and call at 100 at forward time 
+\emph on
+T
+\emph default
+ (and maturity at 
+\emph on
+T+m
+\emph default
+) involves a bond option with strike 100 and expiry at 
+\emph on
+T
+\emph default
+ and the payoff 
+\begin_inset Formula 
+\[
+V(T)=V(B_{T}(T))=\max\left[B_{T}(T)-100,0\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\max\left[c\cdot\tilde{A}(T)+100\cdot\tilde{df}(T+m)-\tilde{y}(T)\cdot\tilde{A}(T)-100\cdot\tilde{df}(T+m),0\right]=\max\left[\left(c-\tilde{y}(T)\right),0\right]\cdot\tilde{A}(T)
+\]
+
+\end_inset
+
+Our arbitrage pricing equation is 
+\begin_inset Formula 
+\[
+\frac{V(t)}{\mathcal{N}(t)}=E^{Q}\left[\frac{\max\left[\left(c-\tilde{y}(T)\right),0\right]\cdot\tilde{A}(T)}{\mathcal{N}(T)}\right]
+\]
+
+\end_inset
+
+Note that both 
+\begin_inset Formula $\tilde{y}(T)$
+\end_inset
+
+ 
+\emph on
+and
+\emph default
+ 
+\begin_inset Formula $\tilde{A}(T)$
+\end_inset
+
+ are random, so we cannot pull the annuity term out of the expectation.
+ But, we can suitably choose the numeraire (and thus the equivalent martingale
+ measure).
+ By choosing 
+\begin_inset Formula $\mathcal{N}(T)=\tilde{A}(T)$
+\end_inset
+
+, we have
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\frac{C(t)}{A(t,T)}=E^{QyA}\left[\frac{\max\left[\left(c-\tilde{y}(T)\right),0\right]\cdot\tilde{A}(T)}{\tilde{A}(T)}\right]=E^{QyA}\left[\max\left[\left(c-\tilde{y}(T)\right),0\right]\right]
+\]
+
+\end_inset
+
+or
+\begin_inset Formula 
+\[
+Call\,on\,bond=PV(forward\,Annuity)\cdot E^{QyA}\left[\left(c-\tilde{y}(T)\right)|\tilde{y}(T)<c\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=PVFAnn\cdot\int_{y=0}^{y=c}\left(c-y_{T}\right)\varphi\left(y_{T};\sigma,\mu=y_{fwd}\right)dy_{T}
+\]
+
+\end_inset
+
+In other words, the call on the bond is a put on the forward yield.
+ Now 
+\begin_inset Formula $\varphi\left(y_{T};\sigma,\mu=y_{T}(t)\right)$
+\end_inset
+
+ is the log-normal density for 
+\emph on
+rates
+\emph default
+, with 
+\emph on
+log rate
+\emph default
+ volatility 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ and mean 
+\begin_inset Formula $\mu=y_{T}(t)$
+\end_inset
+
+, today's forward par bond yield.
+ The formula for the call (using the Black-Scholes put on rates) is:
+\begin_inset Formula 
+\[
+Call\,on\,bond=Put\,on\,rates=\left[N(d_{2})\cdot c-N(d_{1})\cdot y_{T}(0)\right]\cdot PVFAnn
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+d_{1}=\frac{1}{\sigma\sqrt{T}}\left[ln\left(\frac{y_{T}(0)}{c}\right)+\frac{\sigma^{2}T}{2}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+d_{2}=d_{1}-\sigma\sqrt{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Pricing
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Fwd
+\begin_inset space \space{}
+\end_inset
+
+Undlerlier 
+\begin_inset Formula $y_{T}(0)=4.972$
+\end_inset
+
+ (95.98 price of 27-year bond with 4.7% coupon gives 4.972% yield)
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Strike 
+\emph on
+c
+\emph default
+ = 4.700
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $\sigma$
+\end_inset
+
+ Assume 
+\begin_inset Formula $\sigma_{yield}=18.5\%$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+FVFAnn 14.772 = FV (as of expiry date) of $1 paid semi-annually for 27 years
+ at 4.972% yield
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+PVFAnn 13.044 = FVFAnn discounted back for 2.53 years at 4.97%sab = 
+\begin_inset Formula $\frac{14.772}{(1+.0497/2)^{2\cdot2.53}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $d_{1},\,N(d_{1})$
+\end_inset
+
+ 0.3383, 0.6324
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $d_{2},\,N(d_{2})$
+\end_inset
+
+ 0.0439, 0.5175
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Option $5.741, call on bond price, put on rates
+\end_layout
+
+\begin_layout Section
+Normal Yield
+\end_layout
+
+\begin_layout Standard
+This is the same as (2) except that Now 
+\begin_inset Formula $\varphi\left(y_{T};\sigma,\mu=y_{T}(t)\right)$
+\end_inset
+
+ is the 
+\emph on
+normal
+\emph default
+ density for 
+\emph on
+level rates
+\emph default
+, with 
+\emph on
+basis point
+\emph default
+ volatility 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ and mean 
+\begin_inset Formula $\mu=y_{T}(t)$
+\end_inset
+
+, today's forward par bond yield.
+ This gives a formula similar to the Black-Scholes formula – the integral
+ for a normal rather than log-normal density: 
+\begin_inset Formula 
+\[
+Put\,on\,bond=Call\,on\,rates=\sigma_{norm}\sqrt{T}\cdot\left[D\cdot N(D)+\phi(D)\right]\cdot PVFAnn
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+Call\,on\,bond=Put\,on\,rates=Call\,on\,rates-\sigma_{norm}\sqrt{T}\cdot D\cdot PVFAnn
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\sigma_{norm}\sqrt{T}\cdot\left[D\cdot\left(N(D)-1\right)+\phi(D)\right]\cdot PVFAnn=\sigma_{norm}\sqrt{T}\cdot\left[-D\cdot N(-D)+\phi(D)\right]\cdot PVFAnn
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+D=\frac{y_{T}(0)-c}{\sigma_{norm}\sqrt{T}}
+\]
+
+\end_inset
+
+The approximate relation between log-normal and normal yield volatility
+ is
+\begin_inset Formula 
+\[
+\sigma_{norm}\approx\sigma_{lny}\cdot\left[y_{T}(0)+c\right]/2
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Pricing
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Fwd
+\begin_inset space \space{}
+\end_inset
+
+Undlerlier 
+\begin_inset Formula $y_{T}(0)=4.972$
+\end_inset
+
+ (95.98 price of 27-year bond with 4.7% coupon gives 4.972% yield)
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Strike 
+\emph on
+c
+\emph default
+ = 4.700
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $\sigma$
+\end_inset
+
+ Assume 
+\begin_inset Formula $\sigma_{lny}=18.5\%\Rightarrow\sigma_{norm}=.185\cdot(.04972+.047)/2=0.895\%$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+FVFAnn 14.772 = FV (as of expiry date) of $1 paid semi-annually for 27 years
+ at 4.972% yield
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+PVFAnn 13.044 = FVFAnn discounted back for 2.53 years at 4.97%sab = 
+\begin_inset Formula $\frac{14.772}{(1+.0497/2)^{2\cdot2.53}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $D,\,N(D),\,\phi(D)$
+\end_inset
+
+ 0.1910, 0.5758, 0.3917
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Option $5.770, call on bond price, put on rates
+\end_layout
+
+\end_body
+\end_document

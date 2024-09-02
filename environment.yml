@@ -1,0 +1,15 @@
+name: curve_utils
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.10.12
+  - pandas>=2.2.0
+  - numpy>=1.26.0
+  - pytest>=7.4.3
+  - matplotlib>=3.8.1
+  - scipy>=1.11.3
+  - python-decouple>=3.8
+  - pytest>=7.4.3
+  - pathlib>=1.0.1
+  - importlib>=1.0.4

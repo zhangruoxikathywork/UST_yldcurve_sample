@@ -1,0 +1,20 @@
+# Dependencies from this file can be installed with the following command:
+# pip install -r requirements.txt
+#
+# This file may be used to create an environment using:
+# $ conda create --name <env> --file <this file>
+# or, 
+# conda create -n env_name python=3.12
+# conda activate env_name
+# pip install -r requirements.txt
+# platform: win-64
+
+pandas==2.2.0
+numpy==1.26.0
+pytest==7.4.3
+matplotlib==3.8.1
+scipy==1.11.3
+python-decouple==3.8
+pytest==7.4.3
+pathlib==1.0.1
+importlib==1.0.4
